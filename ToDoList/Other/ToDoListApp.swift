@@ -5,11 +5,15 @@
 //  Created by Emmanuel Martinez on 9/6/24.
 //
 
+import FirebaseCore
 import SwiftUI
 import SwiftData
 
 @main
 struct ToDoListApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -25,7 +29,7 @@ struct ToDoListApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
         .modelContainer(sharedModelContainer)
     }
